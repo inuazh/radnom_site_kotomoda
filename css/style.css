@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+}
+
+body {
+    /* Color */
+    --main-color: #b88f4d;
+    --second-color: #debb5f;
+    --contrast-color: #55473a;
+    --help-color: #deca88;
+    --white-color: #e6e6e6;
+    /* font-size */
+    --regular-text: 24px;
+    --small-text: 14px;
+    --header-text: 40px;
+    --main-text: 60px;
+}
+
+/*Containers*/
+.d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.d-flex-evenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+
+.flex-1 {
+    flex: 1 0 auto;
+    max-width: 40%;
+}
+
+/*Containers*/
+
+.header {
+    color: var(--white-color);
+    background-color: var(--contrast-color);
+    height: 120px;
+}
+
+/* Offer Things */
+
+.offer {
+    height: 684px;
+    background: url(../images/header-back.png);
+    background-size: cover;
+}
+
+.offer__content {
+    height: 600px;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.51);
+    color: var(--white-color);
+    flex-direction: column;
+}
+
+/* Offer Things */
+
+/* Catalog */
+.products {
+    height: 956px;
+    flex-direction: column;
+    color: var(--main-color);
+}
+
+/* /Catalog */
+
+/*text*/
+
+.small-text {
+    font-size: var(--small-text);
+}
+
+.main-text {
+    font-size: var(--main-text);
+    font-weight: 900;
+    text-align: center;
+}
+
+.regular-text {
+    font-size: var(--regular-text);
+}
+
+.header-text {
+    font-size: var(--header-text);
+}
+
+.center {
+    text-align: center;
+}
+
+
+/*text*/
+
+
+/* images */
+
+.icon {
+    margin: 20px;
+}
+
+/* images */
+
+/* buttons */
+.button {
+    background-color: var(--contrast-color);
+    color: var(--white-color);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* /buttons */
+
+/* numbers */
+
+.numbers {
+    height: 317px;
+    color: var(--white-color);
+    background-color: var(--contrast-color);
+}
+
+/* /numbers */
+
+/* feedback */
+
+.feedback {
+    height: 836px;
+    color: var(--contrast-color);
+    gap: 40px;
+}
+
+.fieldset {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    border: 8px solid var(--contrast-color);
+    gap: 10px;
+}
+
+.text {
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: var(--main-color);
+    width: 100%;
+    color: var(--white-color);
+}
+
+.text::placeholder {
+    color: var(--white-color);
+}
+
+.feedback-info {
+    width: 500px;
+}
+
+.button-feedback {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.feedback-info {
+    width: 500px;
+}
+
+.info-cards {
+
+    flex-wrap: wrap;
+
+}
+
+.info-cards>figure {
+    width: 30%;
+}
+
+
+
+input[type=checkbox]:active {
+    background-color: yellow;
+}
+
+
+
+
+
+/* /feedback */
+
+/* footer */
+footer {
+    height: 780px;
+    color: var(--contrast-color);
+    background-color: var(--contrast-color);
+
+}
+
+.map {
+    width: 60svw;
+    height: 60vh;
+}
+
+/* /footer */
+
+.swiper {
+    width: 70%;
+}
+
+/* buttons */
+
+.basket {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 48px;
+}
+
+.basket>img {
+    width: inherit;
+    cursor: pointer;
+}
+
+.modal{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.51);
+    z-index: 100;
+
+    /* invisible */
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+}
+
+.content{
+    width: 80vw;
+    height: 80vh;
+    background-color: #fff;
+position: relative;
+}
+
+.btn-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
