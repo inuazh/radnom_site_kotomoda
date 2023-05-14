@@ -1,0 +1,77 @@
+body {
+    --small-text: 10px;
+    --main-text: 30px;
+    --regular-text: 16px;
+}
+
+header {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    height: auto;
+}
+
+.offer-content {
+    width: 100%;
+    height: 100%;
+}
+
+.offer {
+    height: 350px;
+    background-position: -200px center;
+}
+
+.numbers {
+    flex-direction: column;
+}
+
+.feedback {
+    flex-direction: column;
+    margin: 10px 0px;
+    height: auto;
+}
+
+.fieldset {
+    padding: 10px;
+    width: 90%;
+}
+
+.feedback-info {
+    width: 90%;
+}
+
+.info-cards>figure {
+    width: 100%;
+}
+
+footer {
+    height: auto;
+}
+
+.map {
+    height: 200px;
+    width: 100%;
+}
+
+.basket {
+    z-index: 110;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-close {
+    top: auto;
+    left: 10px;
+    bottom: 10px;
+}
+
+td {
+    vertical-align: top;
+    width: 50px;
+}
+
+.small-picture {
+    width: 48px;
+}

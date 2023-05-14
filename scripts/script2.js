@@ -68,10 +68,6 @@ function addChild(element, children) {
 }
 
 
-let basket = [];
-
-
-
 let sw = document.getElementById("sw");
 
 for (product of products) {
@@ -84,42 +80,59 @@ for (product of products) {
     let button = createElement("button", { "class": "btn regular-text" }, "Добавить");
     let element = structuredClone(product);
     button.onclick = function() {
-        basket.push(element);
+        data.push(element);
     }
+
+
     addChild(figcaption, [h3, p1, p2, button]);
     addChild(figure, [img, figcaption]);
     addChild(sw, [figure]);
 }
 
 
-function generateBody() {
-    // removeChild
-    let table = document.getElementById("table");
-    if (document.getElementById("tbody-basket")) {
-        table.removeChild("tbody-basket");
-    }
 
-    let tbody = createElement("tbody", { "id": "tbody-basket" });
-    for (element of basket) {
+function createBasket() {
+    if (document.getElementById("table-basket")) {
+        document.getElementById("table").removeChild(document.getElementById("table-basket"));
+    }
+    let tableBasket = createElement("tbody", { "id": "table-basket" });
+    let i = 0;
+    for (product of data) {
         let tr = createElement("tr");
-        for (key in element) {
-            if (key == "img") {
-                let td = createElement("td");
-                let img = createElement("img", {"src":element[key], "class": "sm-pic" });
-                td.addChild(img);
-                tr.appendChild(td);
+        for (key in product) {
+            if (key == 'desc') {
                 continue;
+            } else if (key == 'img') {
+                let td = createElement("td");
+                let img = createElement("img", { "src": product[key], "class": "small-picture" });
+                addChild(td, [img]);
+                addChild(tr, [td]);
+            } else {
+                let td = createElement("td", {}, product[key]);
+                addChild(tr, [td]);
             }
-            let td = createElement("td", {}, element[key]);
-            tr.appendChild(td);
-        }
-        tbody.appendChild(tr);
-    }
 
-    table.appendChild(tbody);
+        }
+
+        let td = createElement("td");
+        let input = createElement("input", { "class": "num", "id": `td${i}`, "type": "number", "value": "1", "oninput": "allPrice()", "min": "0" });
+        i++;
+        addChild(td, [input]);
+        addChild(tr, [td]);
+
+
+        addChild(tableBasket, [tr]);
+    }
+    document.getElementById("table").appendChild(tableBasket);
 }
 
-
+function allPrice() {
+    let Sum = 0;
+    for (let i = 0; i < data.length; i++) {
+        Sum += data[i].price * document.getElementById(`td${i}`).value;
+    }
+    document.getElementById("allPrice").innerHTML = Sum;
+}
 
 
 
@@ -137,17 +150,31 @@ const swiper = new Swiper('.swiper', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+
+    breakpoints: {
+        "@0.00": {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        },
+        "@0.75": {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        "@1.00": {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+        "@2.00": {
+            slidesPerView: 4,
+            spaceBetween: 50,
+        },
+    },
+
+
 });
 
-function show() {
-    let modal = document.getElementById("modal");
-    modal.style.visibility = "visible";
-    modal.style.opacity = "1";
-    generateBody();
-}
 
-function hide() {
-    let modal = document.getElementById("modal");
-    modal.style.visibility = "hidden";
-    modal.style.opacity = "0";
-}
+
+
+
+data = [];

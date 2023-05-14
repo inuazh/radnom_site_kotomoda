@@ -10,153 +10,141 @@
     <meta name="description" content="...">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" media="(max-width: 450px)" href="css/style-less-450px.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 </head>
 
 <body>
 
     <div class="basket">
-        <img src="images/basket.svg" alt="" onclick="show()">
+        <img src="images/basket.svg" alt="" onclick="showModal()">
     </div>
+
     <section class="modal d-flex-center" id="modal">
         <section class="content">
-            <button class="btn-close btn" onclick="hide()">x</button>
+            <button class="btn btn-close" onclick="hideModal()">X</button>
+            <div class="table-div">
+                <table id="table">
 
-        </section>
-
-        <section class="modal d-flex-center">
-
-            <section class=" content">
-                <button class="button btn-close" onclick="hide()">X</button>
-            </section>
-        </section>
-        <header class="d-flex-evenly header">
-            <section class="d-flex-center">
-                <img class="icon" src="images/logo.png" alt="logo" srcset="">
-                <p>CatTrand <br>Продажа одежды</p>
-            </section>
-
-            <section class="d-flex-evenly flex-1 small-text">
-                <figure class="d-flex-center">
-                    <img class="icon" src="images/email.png" alt="email" srcset="">
-                    <p>Kotomoda@mail.ru</p>
-                </figure>
-                <figure class="d-flex-center">
-                    <img class="icon" src="images/place.png" alt="place" srcset="">
-                    <p>г. Санкт-Петербург<br>Nevs</p>
-                </figure>
-                <figure class="d-flex-center">
-                    <img class="icon" src="images/phone.png" alt="phone" srcset="">
-                    <p>8(800)555-35-35</p>
-                </figure>
-            </section>
-        </header>
-
-        <main>
-            <section class="offer d-flex-center">
-                <section class="offer__content d-flex-center">
-                    <h1 class="main-text">CatTrand - Магазин с крутыми принтами одежды</h1>
-                    <p class="regular-text">В магазине представлены различные предметы одежды с принтами милых котиков
-                    </p>
-                    <button class="button regular-text" onclick="toProducts">Перейти к каталогу</button>
-                </section>
-
-            </section>
-
-            <section class="products d-flex-evenly" id="products">
-                <h2 class="header-text">Каталог товаров</h2>
-                <div class="swiper ">
-                    <div class="swiper-wrapper" id="sw">
-
-                    </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </section>
-
-    </section>
-
-    <section class="numbers d-flex-evenly">
-        <div>
-            <h2 class="main-text center">Отзывы</h2>
-            <p class="regular-text center">1000+</p>
-        </div>
-        <div>
-            <h2 class="main-text center">85%</h2>
-            <p class="regular-text center">Положительных отзывов</p>
-        </div>
-        <div>
-            <h2 class="main-text center">24/7</h2>
-            <p class="regular-text center">Поддержка</p>
-        </div>
-    </section>
-
-    <section class="feedback d-flex-center">
-        <fieldset class="d-flex-center fieldset">
-            <h3 class="header-text">заполните поля</h3>
-            <p>и первый освободившийся оператор вам перезвонит</p>
-            <input class="text" type="text" placeholder="phone" name="" id="">
-            <input class="text" type="text" placeholder="email" name="" id="">
-            <button class="button button-feedback regular-text">заказать звонок</button>
-            <div>
-                <input type="checkbox" name="" id="checkbox"> Соглашаюсь с условиями передачи данных
+                </table>
             </div>
-
-
-        </fieldset>
-        <section class="feedback-info">
-            <h3 class="header-text">Закажите обратный звонок</h3>
-            <p>При обратном звонке мы сможем понять какой именно товар вам нужен</p>
-            <section class="info-cards d-flex-between ">
-
-                <figure>
-                    <img src="images/cat1.svg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione reiciendis molestiae quo
-                        saepe.</p>
-                </figure>
-                <figure>
-                    <img src="images/cat2.svg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </figure>
-                <figure>
-                    <img src="images/cat3.svg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione reiciendis molestiae quo
-                        saepe neque natus, quae est animi blanditiis molestias exercitationem illum? Quae eius
-                        necessitatibus dolorum provident, libero dolores nobis.</p>
-                </figure>
-                <figure>
-                    <img src="images/cat4.svg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione reiciendis molestiae quo
-                        saepe neque natus, quae est animi blanditiis molestias exercitationem illum? Quae eius
-                        necessitatibus dolorum provident, libero dolores nobis.</p>
-                </figure>
-            </section>
-
+            <h5 class="regular-text price">Итого: <span id="allPrice"></span> руб.</h5>
+            <button class="btn btn-pay">Оформить заказ</button>
         </section>
     </section>
+
+
+
+
+    <header class="d-flex-evenly">
+        <section class="d-flex-center">
+            <img src="images/logo.png" alt="">
+            <p>КОТОМОДА<br>Продажа одежды</p>
+        </section>
+        <section class="d-flex-evenly flex-1 small-text">
+            <figure class="d-flex-center">
+                <img class="icon" src="images/email.png" alt="">
+                <p>kotomoda@mail.ru</p>
+            </figure>
+            <figure class="d-flex-center">
+                <img class="icon" src="images/place.png" alt="">
+                <p>г. Санкт-Петербург<br>Невский</p>
+            </figure>
+            <figure class="d-flex-center">
+                <img class="icon" src="images/phone.png" alt="">
+                <p><span>8(800)555-35-35</span><br>Ежедневно</p>
+            </figure>
+        </section>
+    </header>
+
+
+    <main>
+        <section class="offer d-flex-center">
+            <section class="offer-content d-flex-center">
+                <h1 class="main-text">КОТОМОДА - магазин с крутыми принтами для одежды</h1>
+                <p class="regular-text center">В магазине представлены различные предметы одежды с принтами милых котиков
+                </p>
+                <button class="btn regular-text" onclick="toProducts()">Перейти к каталогу</button>
+            </section>
+        </section>
+
+        <section class="products d-flex-evenly" id="products">
+            <h2 class="header-text">Каталог товаров</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper" id="sw">
+
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+
+        <section class="numbers d-flex-evenly">
+            <div>
+                <h2 class="main-text center">1000+</h2>
+                <p class="regular-text center">товаров</p>
+            </div>
+            <div>
+                <h2 class="main-text center">85%</h2>
+                <p class="regular-text center">положительных отзывов</p>
+            </div>
+            <div>
+                <h2 class="main-text center">24/7</h2>
+                <p class="regular-text center">поддержка</p>
+            </div>
+        </section>
+
+        <section class="feedback d-flex-center">
+            <fieldset class="d-flex-center fieldset">
+                <h3 class="header-text">Заполните поля</h3>
+                <p>И первый освободившийся оператор вам перезвонит</p>
+                <input class="text" type="text" placeholder="Номер телефона">
+                <input class="text" type="text" placeholder="e-mail">
+                <button class="btn regular-text btn-feedback">Заказать звонок</button>
+                <div>
+                    <input type="checkbox">Соглашаюсь с условиями передачи данных
+                </div>
+            </fieldset>
+            <section class="feedback-info">
+                <h3 class="header-text">Закажите обратный звонок</h3>
+                <p>При обратном звонке мы сможем понять какой именно товар вам нужен</p>
+                <section class="info-cards d-flex-between">
+                    <figure>
+                        <img src="images/cat1.svg" alt="">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse numquam aliquam dicta soluta reprehenderit! Vel quia quisquam aut illum nobis, alias in pariatur vitae ipsa laboriosam sunt inventore expedita eveniet.</p>
+                    </figure>
+                    <figure>
+                        <img src="images/cat2.svg" alt="">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse numquam aliquam dicta soluta reprehenderit! Vel quia quisquam aut illum nobis, alias in pariatur vitae ipsa laboriosam sunt inventore expedita eveniet.</p>
+                    </figure>
+                    <figure>
+                        <img src="images/cat3.svg" alt="">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse numquam aliquam dicta soluta reprehenderit! Vel quia quisquam aut illum nobis, alias in pariatur vitae ipsa laboriosam sunt inventore expedita eveniet.</p>
+                    </figure>
+                    <figure>
+                        <img src="images/cat4.svg" alt="">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse numquam aliquam dicta soluta reprehenderit! Vel quia quisquam aut illum nobis, alias in pariatur vitae ipsa laboriosam sunt inventore expedita eveniet.</p>
+                    </figure>
+                </section>
+            </section>
+        </section>
     </main>
+
 
     <footer class="d-flex-evenly">
         <section class="map" id="map">
-            <script type="text/javascript">
-                var map;
-                DG.then(function () {
-                    map = DG.map('map', {
-                        center: [59.934814, 30.332977],
-                        zoom: 15
-                    });
-                    DG.marker([59.934814, 30.332977]).addTo(map).bindPopup('КОТОМОДА!');
-                });
-            </script>
         </section>
+        <section>
 
+        </section>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
+    <script src="scripts/map.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/script2.js"></script>
 </body>
 
 </html>
